@@ -1,51 +1,52 @@
-# Setting up the Client Application
+# Client
 
-For starting the webapplication, go to `"/ContactList/"`
+go to `"/Contact_List/"`
 
-## Install the required dependencies with the following commands:
+## Install dependencies (once)
+```bash
+npm install node
+```
+```bash
+npm install vue
+```
 
-1. npm install vue
-
-2. npm install node
-
-## Start the Webapplication-Client with the following command:
-
+## Start Client
+```bash
 npm run dev
+```
 
-# Setting up the Server
+# Server
 
-Switch to `"/Server"`
+go to `"/server"`
 
-## Install the required dependencies with the following commands:
+## Install dependencies (once)
+```bash
+npm install express
+```
+```bash
+npm install body-parser
+```
+```bash
+npm install mongodb
+```
+```bash
+npm install cors
+```
+```bash
+npm install jsonwebtoken
+```
 
-1. npm install body-parser
-
-2. npm install express
-
-3. npm install jsonwebtoken
-
-4. npm install cors
-
-5. 1.npm install mongodb
-
-
-## Start the Server with the following command:
-
+## Start Server
+```bash
 node server.js
+```
 
-# Setting up the Database:
-1. To set up the database on the right Localhost, start the mongodb via `"localhost:27017"`, if not done yet- please run this script only once to initialize the Database
+# Database
+To initialize the database once, start the mongodb on `"localhost:27017"`
 
-2. Switch to `"/Server/init"`
+go to `"/server/init"`
 
-## Start Database with the following command:
-
+## Init Database (once)
+```bash
 node initContactList.js
-
-# About
-
-Repository established by: Emma Victoria Baudy (6480853), Julia Fraunhoffer (6480XX)
-Webprogramming-Individualassignment: Contactpage
-Established in March 2022
-
-If there are any problems with setting up the Application, do not hesitate to contact "emma.bau@student.mahidol.edu" or "julia.fra@student.mahidol.edu"
+```

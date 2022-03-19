@@ -13,7 +13,7 @@ const routes = [
     {
         // route to loginpage if this is entered "http://localhost:3000/"
         path: '/',
-        redirect: '/loginpage'
+        redirect: '/Userlogin'
     },
 
     {

@@ -74,9 +74,9 @@ export default {
       })
         .then((response) => response.json())
         .then((data) => {
-          if (data.token == null) {
+         if (data.status == 0) {
             this.isFalse = true;
-          } else if (data.token) {
+          } else if (data.status == 1) {
             this.isFalse = false;
             this.$router.push("/Home");
           }

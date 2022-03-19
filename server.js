@@ -1,36 +1,45 @@
-/*
-    server.js is a server for Node.js
-    It adds a JSON and URL-encoded parser as a top-level middleware, which will parse the bodies of all incoming requests
-*/
-
-
-// initiating express and assigning a variable to it
 var express = require('express')
+var history = require('connect-history-api-fallback');
 app = express()
 
-
-// process data sent through an HTTP request body
+mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
-
-// define the port
 port = process.env.PORT || 5001
+User = require('./api/models/userModel.js')
+Contact = require('./api/models/contactModel.js')
+mongoose.Promise = global.Promise
 
-// to asynchronously append the data to a file
+url = "mongodb+srv://emma1209:12345@cluster0.hzcjj.mongodb.net/ContactList?retryWrites=true&w=majority"
+
+const connectionParams={
+    useNewUrlParser: true,
+    // useCreateIndex: true,
+    useUnifiedTopology: true 
+}
+
+mongoose.connect(url,connectionParams)
+    .then( () => {
+        console.log('Connected to database ')
+    })
+    .catch( (err) => {
+        console.error(`Error connecting to the database. \n${err}`);
+    })
+
 const { appendFile } = require('fs')
 app.use(cors())
 
-// url-econdes the body
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-
-// creates the route
 var routes = require('./api/routes/contactRoutes')
 routes(app)
 
+if (process.env.NODE_ENV === 'production'){
+    app.use(history()); 
+    app.use(express.static('ContactList/dist'))
+}
 
-// bind and listen to the connections on the specified port
 app.listen(port)
 console.log('ContactList started on : ' + port)
