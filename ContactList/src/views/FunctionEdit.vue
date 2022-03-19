@@ -102,7 +102,7 @@ export default {
   // fetching the data for the contacts from the server
   async created() {
     const res = await fetch(
-      "http://localhost:5001/contacts/getone/" + this.$route.params.id,
+      "https://contact0853.herokuapp.com/contacts/getone/" + this.$route.params.id,
       {
         method: "GET",
         headers: {
@@ -132,7 +132,7 @@ export default {
       delete this.FunctionEdit[0]["_id"];
       console.log(this.FunctionEdit[0]);
       const res = await fetch(
-        "http://localhost:5001/contacts/update/" + this.$route.params.id,
+        "https://contact0853.herokuapp.com/contacts/update/" + this.$route.params.id,
         {
           method: "PUT",
           headers: {

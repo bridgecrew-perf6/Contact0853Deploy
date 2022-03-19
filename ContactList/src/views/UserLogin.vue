@@ -62,7 +62,7 @@ export default {
   methods: {
     //sends the data to the server and confirms them
     async submitData() {
-      const res = await fetch("http://localhost:5001/auth", {
+      const res = await fetch("https://contact0853.herokuapp.com/auth", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
